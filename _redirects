@@ -1,11 +1,9 @@
 # Netlify forwarding rules: each project keeps its own Netlify site,
 # and is shown here under mwerring.netlify.app/<project>/ (the address bar doesn't change).
-# Rules run top to bottom; add one pair per project.
+# Netlify treats /project and /project/ as the same address, so don't add a separate
+# "add the trailing slash" rule here: it loops forever. Each project fixes the slash itself.
 
-# Glamolotl: add the trailing slash so the game's files load, then show glamolotl.netlify.app
-/glamolotl      /glamolotl/                            301
 /glamolotl/*    https://glamolotl.netlify.app/:splat   200
 
 # MeView (when it's a web app):
-# /meview       /meview/                               301
 # /meview/*     https://meview.netlify.app/:splat      200

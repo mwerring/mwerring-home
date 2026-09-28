@@ -8,9 +8,11 @@ under this address, for example `mwerring.netlify.app/glamolotl/` shows `glamolo
 ## Adding a project
 
 1. Deploy the project as its own Netlify site (for example `meview.netlify.app`).
-2. Add two lines to `_redirects`:
+2. Add one line to `_redirects`:
    ```
-   /meview      /meview/                            301
    /meview/*    https://meview.netlify.app/:splat   200
    ```
+   Don't add a separate rule for `/meview` → `/meview/`: Netlify treats them as the same address,
+   so that rule redirects forever. If the project uses relative links, have its page add the
+   trailing slash itself (see the small script at the top of Glamolotl's `index.html`).
 3. Add a card for it in `index.html`.
